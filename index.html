@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>Code Library</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<!-- syntax highlighting--><link rel="stylesheet" type="text/css" href="css/prettify.css" />
+</head>
+<body>
+<div class="container">
+
+<nav class="sideNav">
+	<ul class="sideNavList borderless">
+		<li><a href="#layout">Layout</a>
+			<ul>
+				<li><a href="#twocolumns">Two Columns</a></li>
+				<li><a href="#threecolumns">Three Columns</a></li>
+				<li><a href="#twocolumnsasymetrical">Two Columns Asymetrical</a></li>
+				<li><a href="#twocolumnsasymetricalreversed">Two Columns Asymetrical reversed</a></li>
+			</ul>
+		</li>
+		<li><a href="#lists">Lists</a>
+			<ul>
+				<li><a href="#horizontalnavigation">Horizontal Navigation</a></li>
+				<li><a href="#horizontalnavigationtabs">Horizontal Navigation with Tabs</a></li>
+				<li><a href="#verticalnavigation">Vertical Navigation</a></li>
+				<li><a href="#verticalnavigationbutton">Vertical Navigation button style</a></li>
+			</ul>
+		</li>
+		<li><a href="#breadcrumbs">Breadcrumbs</a></li>
+		<li><a href="#forms">Forms</a>
+			<ul>
+				<li><a href="#horizontalform">Horizontal Form Layout</a></li>
+				<li><a href="#verticalform">Vertical Form Layout</a></li>
+				<li><a href="#formfieldclasses">Form Field Classes</a></li>
+			</ul>
+		</li>
+		<li><a href="#buttons">Buttons</a></li>
+		<li><a href="#tables">Tables</a>
+			<ul>
+				<li><a href="#defaulttables">Default Tables</a></li>
+				<li><a href="#darktable">Dark Tables</a></li>
+			</ul>
+		</li>
+		<li><a href="#alertsandmessages">Alerts and Messages</a></li>
+	</ul>
+</nav>
+<div class="content">
+	<h1 class="special">Code Library</h1>
+		<h2 id="layout">Layout</h2>
+	<p>Since I'm not using floats, these <em>should</em> be self-clearing, provided all columns add up to 100% (or 99%)</p>
+	<h4 class="codeTitle demoTitle">Demo</h4>
+	<h3 id="twocolumns">Two Columns</h3>
+	
+	<div class="col firstHalf">
+		<p>Dedicated to student success and development, the division of Student Life Programs &amp; Services on the St. George Campus provides the supports, opportunities and resources students need to reach their full potential.
+	</p>
+
+</div>
+<div class="col secondHalf">
+<p>The division consists of 11 distinct units dedicated to supporting a variety of personal and learning needs as well as a central team of program, communications, and information technology professionals who pull it all together.</p>
+	</div>
+
+	<h3 id="threecolumns">Three Columns</h3>
+	<div class="col firstThird">
+		<p>Dedicated to student success and development, the division of Student Life Programs &amp; Services on the St. George Campus provides the supports, opportunities and resources students need to reach their full potential.</p>
+	</div>
+	<div class="col secondThird">
+		<p>The division consists of 11 distinct units dedicated to supporting a variety of personal and learning needs as well as a central team of program, communications, and information technology professionals who pull it all together. </p>
+	</div>
+	<div class="col thirdThird">
+		<p>Take advantage of what Student Life Programs &amp; Services has to offer. Your adventure begins now.</p>
+	</div>
+
+<h3 id="twocolumnsasymetrical">Two Columns Asymetrical</h3>
+	<div class="col firstThird longCol">
+		<p>Dedicated to student success and development, the division of Student Life Programs &amp; Services on the St. George Campus provides the supports, opportunities and resources students need to reach their full potential.Take advantage of what Student Life Programs &amp; Services has to offer. Your adventure begins now.
+		</p>
+	</div>
+	<div class="col thirdThird">
+		<p>The division consists of 11 distinct units dedicated to supporting a variety of personal and learning needs as well as a central team of program, communications, and information technology professionals who pull it all together.</p>
+	</div>
+<h3 id="twocolumnsasymetricalreversed">Two Columns Asymetrical (reversed)</h3>
+	<div class="col firstThird ">
+		<p>Dedicated to student success and development, the division of Student Life Programs &amp; Services on the St. George Campus provides the supports, opportunities and resources students need to reach their full potential.
+		</p>
+	</div>
+	<div class="col thirdThird longCol">
+		<p>The division consists of 11 distinct units dedicated to supporting a variety of personal and learning needs as well as a central team of program, communications, and information technology professionals who pull it all together.</p>
+	</div>
+<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;!-- two columns -->	
+&lt;div class="col firstHalf">...&lt;/div>
+&lt;div class="col secondHalf">...&lt;/div>
+
+&lt;!-- three columns -->
+&lt;div class="firstThird">...&lt;/div>
+&lt;div class="secondThird">...&lt;/div>
+&lt;div class="thirdThird">...&lt;/div>
+
+&lt;!-- two columns asymetrical -->
+&lt;div class="col firstThird longCol">...&lt;/div>
+&lt;div class="col thirdThird">...&lt;/div>
+
+&lt;!-- two columns asymetrical reversed -->
+&lt;div class="col firstThird">...&lt;/div>
+&lt;div class="col thirdThird longCol">...&lt;/div>
+</pre>
+<h4 class="codeTitle">CSS</h4>
+
+<pre class="prettyprint">
+.col {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	display: inline-block;
+	vertical-align: top;
+}
+.firstHalf, .secondHalf {
+    width: 49%;
+}
+.firstHalf {
+    clear: both;
+}
+.secondHalf {
+    padding-left: 2%;
+}
+.firstThird {
+    padding-right: 1%;
+    width: 33%;
+}
+.secondThird {
+    padding: 0 1%;
+    width: 33%;
+}
+.thirdThird {
+    padding-left: 1%;
+    width: 32%;
+}
+.longCol {
+    width: 66%;
+}
+</pre>
+
+	<h2 id="lists">Lists</h2>
+	<h3 id="horizontalnavigation">Horizontal Navigation</h3>
+	<h4 class="codeTitle demoTitle">Demo</h4>
+	<ul class="navList">
+		<li><a class="current" href="#Forms">Forms</a></li>
+		<li><a href="#Buttons">Buttons</a></li>
+		<li><a href="#Tables">Tables</a></li>
+		<li><a href="#Layout">Layout</a></li>
+	</ul>
+<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;ul class="navList">
+	&lt;li>&lt;a class="current" href="#Forms">Forms&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#Buttons">Buttons&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#Tables">Tables&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#Layout">Layout&lt;/a>&lt;/li>
+&lt;/ul>
+</pre>
+<h4 class="codeTitle">CSS</h4>
+<pre class="prettyprint">
+.navList {
+    list-style: none outside none;
+    margin-left: 0;
+}
+.navList:before,
+.navList:after {
+  display: table;
+  content: "";
+}
+.navList:after{
+  clear: both;
+}
+.navList li {
+    float: left;
+    padding-right: 10px;
+}
+.navList a {
+    border-radius: 3px;
+    display: block;
+    padding: 4px 8px;
+    text-decoration: none;
+}
+.navList .current {
+    background-color: #002A5C;
+    color: #FFFFFF;
+}
+</pre>
+<h3 id="horizontalnavigationtabs">Horizontal Navigation with Tabs</h3>
+	<h4 class="codeTitle demoTitle">Demo</h4>
+	<ul class="navList tabList">
+		<li><a class="current" href="#Forms">Forms</a></li>
+		<li><a href="#Buttons">Buttons</a></li>
+		<li><a href="#Tables">Tables</a></li>
+		<li><a href="#Layout">Layout</a></li>
+	</ul>
+
+<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;ul class="navList tabList">
+	&lt;li>&lt;a class="current" href="#Forms">Forms&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#Buttons">Buttons&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#Tables">Tables&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#Layout">Layout&lt;/a>&lt;/li>
+&lt;/ul>
+</pre>
+<h4 class="codeTitle">CSS</h4>
+<pre class="prettyprint">
+.navList {
+    list-style: none outside none;
+    margin-left: 0;
+}
+.navList:before,
+.navList:after {
+  display: table;
+  content: "";
+}
+.navList:after{
+  clear: both;
+}
+.navList li {
+    float: left;
+    padding-right: 10px;
+}
+.navList a {
+    border-radius: 3px;
+    display: block;
+    padding: 4px 8px;
+    text-decoration: none;
+}
+.navList .current {
+    background-color: #002A5C;
+    color: #FFFFFF;
+}
+.navList.tabList {
+     border-bottom:1px solid #999;
+}
+.navList.tabList li {
+    padding-right: 0;
+    margin-bottom: -1px;
+}
+.navList.tabList a {
+    color: #444;
+    border: 1px solid transparent;
+    margin-right: 2px;
+}
+.navList.tabList .current {
+    border: 1px solid #999;
+    border-bottom-color: transparent;
+    border-radius: 3px 3px 0 0;
+    background-color: #fff;
+}
+</pre>
+	<h3 id="verticalnavigation">Vertical Navigation Default</h3>
+	<h4 class="codeTitle demoTitle">Demo</h4>
+	<ul class="sideNavList">
+		<li><a href="#Forms">Forms</a></li>
+		<li><a href="#Buttons">Buttons</a></li>
+		<li><a href="#Tables">Tables</a>
+			<ul>
+				<li><a class="current" href="#default">Default Table</a></li>
+				<li><a href="#default">Dark Table</a></li>
+			</ul>
+		</li>
+		<li><a href="#Layout">Layout</a></li>
+	</ul>
+<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;ul class="sideNavList">
+	&lt;li>&lt;a href="#Forms">Forms&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#Buttons">Buttons&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#Tables">Tables&lt;/a>
+		&lt;ul>
+			&lt;li>&lt;a class="current" href="#default">Default Table&lt;/a>&lt;/li>
+			&lt;li>&lt;a href="#default">Dark Table&lt;/a>&lt;/li>
+		&lt;/ul>
+	&lt;/li>
+	&lt;li>&lt;a href="#Layout">Layout&lt;/a>&lt;/li>
+&lt;/ul>
+</pre>
+<h4 class="codeTitle">CSS</h4>
+<pre class="prettyprint">
+.sideNavList, .sideNavList ul {
+    list-style: none outside none;
+    margin: 0;
+}
+.sideNavList li a {
+    border-top: 1px solid #E4E4E4;
+    display: block;
+    padding: 5px 0 5px 3px;
+    color: #002a5c;
+}
+.sideNavList ul a {
+    padding-left: 20px;
+}
+.sideNavList a {
+    text-decoration: none;
+}
+.sideNavList .current, .sideNavList a:hover {
+    color: #0059C2;
+}
+</pre>
+
+<h3 id="verticalnavigationbutton">Vertical Navigation &mdash; button style</h3>
+	<h4 class="codeTitle demoTitle">Demo</h4>
+	<ul class="sideNavList buttonList">
+		<li><a href="#Forms">Forms</a></li>
+		<li><a href="#Buttons">Buttons</a></li>
+		<li><a  class="current"  href="#Tables">Tables</a>
+			<ul>
+				<li><a href="#default">Default Table</a></li>
+				<li><a href="#default">Dark Table</a></li>
+			</ul>
+		</li>
+		<li><a href="#Layout">Layout</a></li>
+	</ul>
+	<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;ul class="sideNavList buttonList">
+	&lt;li>&lt;a href="#Forms">Forms&lt;/a>&lt;/li>
+	&lt;li>&lt;a href="#Buttons">Buttons&lt;/a>&lt;/li>
+	&lt;li>&lt;a  class="current"  href="#Tables">Tables&lt;/a>
+		&lt;ul>
+			&lt;li>&lt;a href="#default">Default Table&lt;/a>&lt;/li>
+			&lt;li>&lt;a href="#default">Dark Table&lt;/a>&lt;/li>
+		&lt;/ul>
+	&lt;/li>
+	&lt;li>&lt;a href="#Layout">Layout&lt;/a>&lt;/li>
+&lt;/ul>
+</pre>
+
+<h4 class="codeTitle">CSS</h4>
+
+<pre class="prettyprint">
+.navList {
+    list-style: none outside none;
+    margin-left: 0;
+}
+.navList:before,
+.navList:after {
+  display: table;
+  content: "";
+}
+.navList:after{
+  clear: both;
+}
+.navList li {
+    float: left;
+    padding-right: 10px;
+}
+.navList a {
+    border-radius: 3px;
+    display: block;
+    padding: 4px 8px;
+    text-decoration: none;
+}
+.navList .current {
+    background-color: #002A5C;
+    color: #FFFFFF;
+}
+.navList.tabList {
+     border-bottom:1px solid #999;
+}
+.navList.tabList li {
+    padding-right: 0;
+    margin-bottom: -1px;
+}
+.navList.tabList a {
+    color: #444;
+    border: 1px solid transparent;
+    margin-right: 2px;
+}
+.navList.tabList .current {
+    border: 1px solid #999;
+    border-bottom-color: transparent;
+    border-radius: 3px 3px 0 0;
+    background-color: #fff;
+}
+.sideNavList, .sideNavList ul {
+    list-style: none outside none;
+    margin: 0;
+}
+.sideNavList li a {
+    border-top: 1px solid #E4E4E4;
+    display: block;
+    padding: 5px 0 5px 3px;
+}
+.sideNavList ul a {
+    padding-left: 20px;
+}
+.sideNavList a {
+    text-decoration: none;
+}
+.sideNavList .current, .sideNavList a:hover {
+    color: #0059C2;
+}
+.buttonList li a {
+    border: none;
+    padding: 7px 0 7px 7px;
+    border-radius: 3px;
+}
+.buttonList ul li a {
+    padding-left: 17px;
+}
+.buttonList .current {
+    background-color: #002A5C;
+    color: #fff;
+}
+.buttonList a:hover {
+    background-color: #0059C2;
+    color: #fff;
+}
+.navList.borderless a {
+    border: none;
+}
+</pre>
+
+<h2 id="breadcrumbs">Breadcrumbs</h2>
+<p>Note: encode greater than symbol (&gt;)</p>
+<h4 class="codeTitle demoTitle">Demo</h4>
+<div class="breadcrumbs">
+	<span class="visHide">You are here: </span>
+	<a href="#">Home</a>&gt;
+	<a href="#">About</a>&gt;
+	History
+</div>
+
+<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;div class="breadcrumbs">
+	&lt;span class="visHide">You are here: &lt;/span>
+	&lt;a href="#">Home&lt;/a>&gt;
+	&lt;a href="#">About&lt;/a>&gt;
+	History
+&lt;/div>
+</pre>
+<h4 class="codeTitle">CSS</h4>
+
+<pre class="prettyprint">
+.breadcrumbs {
+    padding: 10px 0px;
+}
+.breadcrumbs a {
+    display: inline-block;
+    text-decoration: none;
+    padding-right: 8px;
+}
+</pre>
+	<h2 id="forms">Forms</h2>
+	<h3 id="horizontalform">Horizontal Layout Form</h3>
+	<p><em><b>Note:</b> This form requires specific markup, the vertical form does not</em></p>
+<h4 class="codeTitle demoTitle">Demo</h4>
+
+	<form class="horizontalForm">
+		<p>
+			<label>Text Field</label>
+			<span class="field">
+				<input type="text" />
+			</span>
+		</p>
+		</p>
+			<label>Select Box</label>
+			<span class="field">
+				<select>
+					<option>Administrator</option>
+					<option>Member</option>
+					<option>User</option>
+				</select>
+			</span>
+		</p>
+		
+		<p>
+			<label>Checkbox</label>
+			<span class="field">
+				<input type="checkbox" />
+			</span>
+		</p>
+		<p>
+			<label>Textarea</label>
+			<span class="field">
+				<textarea></textarea>
+			</span>
+		</p>
+		<p>
+			<fieldset>
+				<legend>Radio Buttons</legend>
+				<span class="field">
+					<input type="radio" name="option" id="opt1"/><label for="opt1">Administrator</label><br />
+					<input type="radio" name="option" id="opt2"/><label for="opt2">Member</label><br />
+					<input type="radio" name="option" id="opt3"/><label for="opt3">User</label>
+				</span>
+			</fieldset>
+		</p>
+		<p>
+			<fieldset>
+				<legend>Multiple Checkboxes with Fieldset</legend>
+				<span class="field">
+					<input type="checkbox" id="ch1" /><label for="ch1">Event 1: Monday, July 16</label><br />
+					<input type="checkbox" id="ch2" /><label for="ch2">Event 2: Monday, July 16</label><br />
+					<input type="checkbox" id="ch3" /><label for="ch3">Event 3: Monday, July 16</label><br />
+					<input type="checkbox" id="ch4" /><label for="ch4">Event 4: Monday, July 16</label>
+				</span>
+			</fieldset>
+		</p>
+	</form>
+<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;form class="horizontalForm">
+&lt;!-- text field -->
+	&lt;p>
+		&lt;label>Text Field&lt;/label>
+		&lt;span class="field">
+			&lt;input type="text" />
+		&lt;/span>
+	&lt;/p>
+&lt;!-- select box -->
+	&lt;/p>
+		&lt;label>Select Box&lt;/label>
+		&lt;span class="field">
+			&lt;select>
+				&lt;option>Administrator&lt;/option>
+				&lt;option>Member&lt;/option>
+				&lt;option>User&lt;/option>
+			&lt;/select>
+		&lt;/span>
+	&lt;/p>
+&lt;!-- checkbox -->	
+	&lt;p>
+		&lt;label>Checkbox&lt;/label>
+		&lt;span class="field">
+			&lt;input type="checkbox" />
+		&lt;/span>
+	&lt;/p>
+&lt;!-- textarea -->
+	&lt;p>
+		&lt;label>Textarea&lt;/label>
+		&lt;span class="field">
+			&lt;textarea>&lt;/textarea>
+		&lt;/span>
+	&lt;/p>
+&lt;!-- radio buttons -->
+	&lt;p>
+		&lt;fieldset>
+			&lt;legend>Radio Buttons&lt;/legend>
+			&lt;span class="field">
+				&lt;input type="radio" name="option" id="opt1"/>&lt;label for="opt1">Administrator&lt;/label>&lt;br />
+				&lt;input type="radio" name="option" id="opt2"/>&lt;label for="opt2">Member&lt;/label>&lt;br />
+				&lt;input type="radio" name="option" id="opt3"/>&lt;label for="opt3">User&lt;/label>
+			&lt;/span>
+		&lt;/fieldset>
+	&lt;/p>
+&lt;!-- multiple checkboxes -->
+	&lt;p>
+		&lt;fieldset>
+			&lt;legend>Multiple Checkboxes with Fieldset&lt;/legend>
+			&lt;span class="field">
+				&lt;input type="checkbox" id="ch1" />&lt;label for="ch1">Event 1: Monday, July 16&lt;/label>&lt;br />
+				&lt;input type="checkbox" id="ch2" />&lt;label for="ch2">Event 2: Monday, July 16&lt;/label>&lt;br />
+				&lt;input type="checkbox" id="ch3" />&lt;label for="ch3">Event 3: Monday, July 16&lt;/label>&lt;br />
+				&lt;input type="checkbox" id="ch4" />&lt;label for="ch4">Event 4: Monday, July 16&lt;/label>
+			&lt;/span>
+		&lt;/fieldset>
+	&lt;/p>
+&lt;/form>
+</pre>
+<h4 class="codeTitle">CSS</h4>
+<pre class="prettyprint">
+.horizontalForm {
+    margin-bottom: 15px;
+}
+.horizontalForm p {
+    clear: both;
+}
+.horizontalForm label {
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-right: 2%;
+    text-align: right;
+    vertical-align: top;
+    width: 20%;
+}
+.horizontalForm .field {
+    display: inline-block;
+    margin-right: 15%;
+    text-align: left;
+    vertical-align: top;
+    width: 60%;
+}
+.horizontalForm input[type="text"], .horizontalForm input[type="email"], .horizontalForm textarea {
+    width: 70%;
+}
+.horizontalForm fieldset {
+    overflow: hidden;
+    padding-top: 15px;
+}
+.horizontalForm legend {
+    float: left;
+    margin-right: 2%;
+    text-align: right;
+    width: 20%;
+}
+.horizontalForm fieldset label {
+    margin-bottom: 5px;
+    width: auto;
+}
+.horizontalForm .errorMsg {
+    display: block;
+    padding-top: 4px;
+}
+.errorMsg {
+    color: #D30000;
+    font-size: 12px;
+}
+</pre>
+
+	<h3 id="verticalform">Vertical Layout Form</h3>
+	<form class="verticalForm">
+		<h4 class="codeTitle demoTitle">Demo</h4>
+
+		<label>Email Address</label>
+		<input type="text" />
+		<small>Must be a valid @utoronto.ca or @mail.utoronto.ca address</small>
+		
+		
+		<div class="col firstHalf">
+			<label>Street Address</label>
+			<input type="text" />
+			<span class="errorMsg">Please Enter your Street Address</span>
+		</div>
+		<div class="col secondHalf">
+			<label>City</label>
+			<input type="text" />
+		</div>
+		<div class="col firstHalf">
+			<div class="col firstHalf">
+				<label>Province</label>
+				<select>
+					<option>Alberta</option>
+					<option>British Columbia</option>
+					<option>Newfoundland</option>
+					<option>Nova Scotia</option>
+					<option>New Brusnwick</option>
+					<option>Northwest Territories</option>
+				</select>
+			</div>
+			<div class="col secondHalf">
+				<label>Postal Code</label>
+				<input type="text" />
+
+			</div>
+			<fieldset>
+				<legend>Which event would you like to attend?</legend>
+				<input type="checkbox" id="ch1" /><label for="ch1">Event 1: Monday, July 16</label><br />
+				<input type="checkbox" id="ch4" /><label for="ch4">Event 2: Monday, July 16</label>
+			</fieldset>
+		</div>
+<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;form class="verticalForm">
+	&lt;h4 class="codeTitle demoTitle">Demo&lt;/h4>
+
+	&lt;label>Email Address&lt;/label>
+	&lt;input type="text" />
+	&lt;small>Must be a valid @utoronto.ca or @mail.utoronto.ca address&lt;/small>
+	
+	
+	&lt;div class="col firstHalf">
+		&lt;label>Street Address&lt;/label>
+		&lt;input type="text" />
+		&lt;span class="errorMsg">Please Enter your Street Address&lt;/span>
+	&lt;/div>
+	&lt;div class="col secondHalf">
+		&lt;label>City&lt;/label>
+		&lt;input type="text" />
+	&lt;/div>
+	&lt;div class="col firstHalf">
+		&lt;div class="col firstHalf">
+			&lt;label>Province&lt;/label>
+			&lt;select>
+				&lt;option>Alberta&lt;/option>
+				&lt;option>British Columbia&lt;/option>
+				&lt;option>Newfoundland&lt;/option>
+				&lt;option>Nova Scotia&lt;/option>
+				&lt;option>New Brusnwick&lt;/option>
+				&lt;option>Northwest Territories&lt;/option>
+			&lt;/select>
+		&lt;/div>
+		&lt;div class="col secondHalf">
+			&lt;label>Postal Code&lt;/label>
+			&lt;input type="text" />
+		&lt;/div>
+	&lt;/div>
+	&lt;fieldset>
+		&lt;legend>Which event would you like to attend?&lt;/legend>
+		&lt;input type="checkbox" id="ch1" />&lt;label for="ch1">Event 1: Monday, July 16&lt;/label>&lt;br />
+		&lt;input type="checkbox" id="ch4" />&lt;label for="ch4">Event 2: Monday, July 16&lt;/label>
+	&lt;/fieldset>
+&lt;/form>
+</pre>
+<h4 class="codeTitle">CSS</h4>
+<pre class="prettyprint">
+.firstThird, 
+.secondThird, 
+.thirdThird, 
+.firstHalf, 
+.secondHalf {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: top;
+}
+.firstHalf, 
+.secondHalf {
+    width: 49%;
+}
+.firstHalf {
+    clear: both;
+}
+.secondHalf {
+    padding-left: 2%;
+}
+.verticalForm label {
+    display: block;
+    margin-top: 15px;
+    padding-bottom: 5px;
+}
+.verticalForm legend {
+    margin-bottom: 5px;
+}
+.verticalForm fieldset {
+    line-height: 1.6;
+    margin-top: 15px;
+}
+.verticalForm fieldset label {
+    display: inline;
+    margin-top: 0;
+}
+.verticalForm small {
+    color: #666666;
+    font-size: 12px;
+    display: block;
+    padding-top: 3px;
+}
+.verticalForm input[type="text"], 
+.verticalForm textarea {
+    display: block;
+    width: 49%;
+}
+.verticalForm .firstHalf input[type="text"], 
+.verticalForm .secondHalf input[type="text"] {
+    width: 100%;
+}
+.verticalForm input[type="submit"] {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.errorMsg {
+    color: #D30000;
+    font-size: 12px;
+}
+</pre>
+<h3 id="formfieldclasses">Form Field Classes</h3>
+<h4>Field widths</h4>
+		<p>Default text/email input field is 100% of container in two-column layout, or 50% of container if one-column layout. Use additional classes to change percentage-based width (relative to container):</p>
+<h4 class="codeTitle demoTitle">Demo</h4>
+		<label>inputFull</label>
+		<input type="text" class="inputFull"/>
+		<label>inputHalf</label>
+		<input type="text" class="inputHalf"/>
+		<label>inputThird</label>
+		<input type="text" class="inputThird"/>
+		<label>inputQuarter</label>
+		<input type="text" class="inputQuarter"/>
+		<label>inputEighth</label>
+		<input type="text" class="inputEighth" />
+		<label>inputSixteenth</label>
+		<input type="text" class="inputSixteenth" />
+		<label>Required Field <span class="req"><span class="visHide">required field</span>&lowast;</span></label>
+		<input type="text" class="requiredField" />
+		<label>Full width Textarea</label>
+		<textarea class="fullInput"></textarea>
+		<div class="searchField">
+			<label>Search Field</label>
+			<input class="searchInput" type="text" />
+			<input type="submit" class="btn btnAlt" value="Search" />
+		</div>
+	</form>
+<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;!-- full width -->
+&lt;label>inputFull&lt;/label>
+&lt;input type="text" class="inputFull"/>
+
+&lt;!-- half width -->
+&lt;label>inputHalf&lt;/label>
+&lt;input type="text" class="inputHalf"/>
+
+&lt;!-- one third width -->
+&lt;label>inputThird&lt;/label>
+&lt;input type="text" class="inputThird"/>
+
+&lt;!-- one quarter width -->
+&lt;label>inputQuarter&lt;/label>
+&lt;input type="text" class="inputQuarter"/>
+
+&lt;!-- one eigth width -->
+&lt;label>inputEighth&lt;/label>
+&lt;input type="text" class="inputEighth" />
+
+&lt;!-- one sixteenth width -->
+&lt;label>inputSixteenth&lt;/label>
+&lt;input type="text" class="inputSixteenth" />
+
+&lt;!-- full width -->
+&lt;label>Full width text area&lt;/label>
+&lt;textarea class="fullInput">&lt;/textarea>
+
+&lt;!-- required field width -->
+&lt;label>Required Field &lt;span class="req">&lt;span class="visHide">required field&lt;/span>&lowast;&lt;/span>&lt;/label>
+&lt;input type="text" class="requiredField" />
+&lt;!-- search field -->
+&lt;div class="searchField">
+	&lt;input class="searchInput" type="text" />
+	&lt;input type="submit" class="btn btnAlt" value="Search" />
+&lt;/div>
+</pre>
+<h4 class="codeTitle">CSS</h4>
+
+<pre class="prettyprint">
+.inputFull {
+    width: 100% !important;
+}
+.inputHalf {
+    width: 50% !important;
+}
+.inputThird {
+    width: 33% !important;
+}
+.inputQuarter {
+    width: 25% !important;
+}
+.inputEighth {
+    width: 14% !important;
+}
+.inputSixteenth {
+    width: 7% !important;
+}
+.secondHalf .smallInput, .firstHalf .smallInput {
+    width: 50% !important;
+}
+.microInput {
+    width: 14% !important;
+}
+.searchField {
+    margin-bottom: 15px;
+}
+.searchInput {
+    padding: 5px;
+    display: inline-block!important;
+    width: auto!important;
+}
+.btn {
+    background: linear-gradient(center top , #0B4484 0%, #002A5C 100%) repeat scroll 0 0 transparent;
+    border: 1px solid #00142C;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    padding: 4px 8px;
+    text-decoration: none;
+}
+.visHide {
+    position: absolute;
+    left: -9999px;
+}
+</pre>
+	
+	<h2 id="buttons">Buttons</h2>
+	<h4 class="codeTitle demoTitle">Demo</h4>
+	<p><a href="#" class="btn">Default Button</a>
+	<a href="#" class="btn btnSuccess">Success</a>
+	<a href="#" class="btn btnWarning">Warning</a>
+	<a href="#" class="btn btnDanger">Danger</a>
+	<a href="#" class="btn btnAlt">Alt button</a></p>
+
+<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;a href="#" class="btn">Default Button&lt;/a>
+&lt;a href="#" class="btn btnSuccess">Success&lt;/a>
+&lt;a href="#" class="btn btnWarning">Warning&lt;/a>
+&lt;a href="#" class="btn btnDanger">Danger&lt;/a>
+&lt;a href="#" class="btn btnAlt">Alt button&lt;/a>
+</pre>
+<h4 class="codeTitle">CSS</h4>
+
+<pre class="prettyprint">
+.btn {
+    background-color: #0b4384;
+    background-image:-webkit-gradient(linear, left top, left bottom, from(#0b4384), to(#002A5C));
+    background-image:-webkit-linear-gradient(top, #0b4384, #002A5C); 
+    background-image:-moz-linear-gradient(top, #0b4384, #002A5C); 
+    background-image:-o-linear-gradient(top, #0b4384, #002A5C); 
+    background-image:linear-gradient(to bottom, #0b4384, #002A5C);
+    border: 1px solid #00142C;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    padding: 4px 8px;
+    text-decoration: none;
+}
+.btn:hover {
+    background-color: #0E55A0;
+    background-image:-webkit-gradient(linear, left top, left bottom, from(#0E55A0), to(#004089));
+    background-image:-webkit-linear-gradient(top, #0E55A0, #004089); 
+    background-image:-moz-linear-gradient(top, #0E55A0, #004089); 
+    background-image:-o-linear-gradient(top, #0E55A0, #004089); 
+    background-image:linear-gradient(to bottom, #0E55A0, #004089);
+    border-color: #01234D;
+}
+.btnSuccess {
+    background-color: #039941;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#039941), to(#006e2e)); 
+    background-image: -webkit-linear-gradient(top, #039941, #006e2e); 
+    background-image: -moz-linear-gradient(top, #039941, #006e2e); 
+    background-image: -o-linear-gradient(top, #039941, #006e2e); 
+    background-image: linear-gradient(to bottom, #039941, #006e2e); 
+    border-color: #005423;
+}
+.btnSuccess:hover {
+    background-color: #03AF48;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#03AF48), to(#008437)); 
+    background-image: -webkit-linear-gradient(top, #03AF48, #008437); 
+    background-image: -moz-linear-gradient(top, #03AF48, #008437); 
+    background-image: -o-linear-gradient(top, #03AF48, #008437); 
+    background-image: linear-gradient(to bottom, #03AF48, #008437); 
+    border-color: #007330;
+}
+.btnWarning {
+    background-color: #FAA732;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#FAA732), to(#D37B00)); 
+    background-image: -webkit-linear-gradient(top, #FAA732, #D37B00); 
+    background-image: -moz-linear-gradient(top, #FAA732, #D37B00); 
+    background-image: -o-linear-gradient(top, #FAA732, #D37B00); 
+    background-image: linear-gradient(to bottom, #FAA732, #D37B00); 
+    border-color: #CB7702;
+}
+.btnWarning:hover {
+    background-color: #FCB755;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#FCB755), to(#F29113)); 
+    background-image: -webkit-linear-gradient(top, #FCB755, #F29113); 
+    background-image: -moz-linear-gradient(top, #FCB755, #F29113); 
+    background-image: -o-linear-gradient(top, #FCB755, #F29113); 
+    background-image: linear-gradient(to bottom, #FCB755, #F29113); 
+    border-color: #E68E14;
+}
+.btnDanger {
+    background-color: #CC0000;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#CC0000), to(#A30000)); 
+    background-image: -webkit-linear-gradient(top, #CC0000, #A30000); 
+    background-image: -moz-linear-gradient(top, #CC0000, #A30000); 
+    background-image: -o-linear-gradient(top, #CC0000, #A30000); 
+    background-image: linear-gradient(to bottom, #CC0000, #A30000); 
+    border-color: #940000;
+}
+.btnDanger:hover {
+    background-color: #E80000;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#E80000), to(#C10000)); 
+    background-image: -webkit-linear-gradient(top, #E80000, #C10000); 
+    background-image: -moz-linear-gradient(top, #E80000, #C10000); 
+    background-image: -o-linear-gradient(top, #E80000, #C10000); 
+    background-image: linear-gradient(to bottom, #E80000, #C10000); 
+    border-color: #BC0000;
+}
+.btnAlt {
+    background-color: #787F84;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#787F84), to(#465259)); 
+    background-image: -webkit-linear-gradient(top, #787F84, #465259); 
+    background-image: -moz-linear-gradient(top, #787F84, #465259); 
+    background-image: -o-linear-gradient(top, #787F84, #465259); 
+    background-image: linear-gradient(to bottom, #787F84, #465259); 
+    border-color: #484848;
+}
+.btnAlt:hover {
+    background-color: #81898E;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#81898E), to(#5A6972)); 
+    background-image: -webkit-linear-gradient(top, #81898E, #5A6972); 
+    background-image: -moz-linear-gradient(top, #81898E, #5A6972); 
+    background-image: -o-linear-gradient(top, #81898E, #5A6972); 
+    background-image: linear-gradient(to bottom, #81898E, #5A6972); 
+    border-color: #626262;
+}
+</pre>
+<h2 id="tables">Tables</h2>
+	<h3 id="defaulttables">Default Table</h3>
+<h4 class="codeTitle demoTitle">Demo</h4>
+
+	<table class="appTable  wide">
+		<tr>
+			<th>&nbsp;</th>
+			<th>Name</th>
+			<th>UTorID</th>
+			<th>Role</th>
+			<th>Last Updated</th>
+			<th>Actions</th>
+		</tr>
+		<tr>
+			<td><input type="checkbox" /></td>
+			<td>Tessa Thornton</td>
+			<td>thornto2</td>
+			<td>Administrator</td>
+			<td>08/06/2012</td>
+			<td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" /></td>
+			<td>Jun Shen</td>
+			<td>shenj</td>
+			<td>Administrator</td>
+			<td>02/06/2012</td>
+			<td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" /></td>
+			<td>John Doe</td>
+			<td>jdoe12</td>
+			<td>Member</td>
+			<td>01/06/2012</td>
+			<td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" /></td>
+			<td>Jane Smith</td>
+			<td>smithj</td>
+			<td>Member</td>
+			<td>02/06/2012</td>
+			<td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+		</tr>
+	</table>	
+<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;table class="appTable  wide">
+	&lt;tr>
+		&lt;th>&nbsp;&lt;/th>
+		&lt;th>Name&lt;/th>
+		&lt;th>UTorID&lt;/th>
+		&lt;th>Role&lt;/th>
+		&lt;th>Last Updated&lt;/th>
+		&lt;th>Actions&lt;/th>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;input type="checkbox" />&lt;/td>
+		&lt;td>Tessa Thornton&lt;/td>
+		&lt;td>thornto2&lt;/td>
+		&lt;td>Administrator&lt;/td>
+		&lt;td>08/06/2012&lt;/td>
+		&lt;td>&lt;a href="#">Edit&lt;/a> | &lt;a href="#">Delete&lt;/a>&lt;/td>
+	&lt;/tr>
+	&lt;tr>
+		&lt;td>&lt;input type="checkbox" />&lt;/td>
+		&lt;td>Jun Shen&lt;/td>
+		&lt;td>shenj&lt;/td>
+		&lt;td>Administrator&lt;/td>
+		&lt;td>02/06/2012&lt;/td>
+		&lt;td>&lt;a href="#">Edit&lt;/a> | &lt;a href="#">Delete&lt;/a>&lt;/td>
+	&lt;/tr>
+&lt;/table>	
+</pre>
+<h4 class="codeTitle">CSS</h4>
+
+<pre class="prettyprint">
+.appTable {
+    border-bottom: 1px solid #DCDCDC;
+    border-left: 1px solid #DCDCDC;
+}
+.appTable th, .appTable td {
+    padding: 7px 9px;
+    text-align: left;
+    vertical-align: top;
+}
+.appTable td {
+    border-right: 1px solid #DCDCDC;
+    border-top: 1px solid #DCDCDC;
+}
+.appTable th {
+    background-color: #FFFFFF;
+    border: 1px solid #DCDCDC;
+    border-bottom: 2px solid #888888;
+    color: #555555;
+}
+.appTable tr:nth-child(2n+1) td {
+    background-color: #F1F1F1;
+}
+</pre>
+	<h3 id="darktable">Dark Table</h3>
+	<table class="appTable darkTable wide">
+		<tr>
+			<th>&nbsp;</th>
+			<th>Name</th>
+			<th>UTorID</th>
+			<th>Role</th>
+			<th>Last Updated</th>
+			<th>Actions</th>
+		</tr>
+		<tr>
+			<td><input type="checkbox" /></td>
+			<td>Tessa Thornton</td>
+			<td>thornto2</td>
+			<td>Administrator</td>
+			<td>08/06/2012</td>
+			<td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" /></td>
+			<td>Jun Shen</td>
+			<td>shenj</td>
+			<td>Administrator</td>
+			<td>02/06/2012</td>
+			<td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" /></td>
+			<td>John Doe</td>
+			<td>jdoe12</td>
+			<td>Member</td>
+			<td>01/06/2012</td>
+			<td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" /></td>
+			<td>Jane Smith</td>
+			<td>smithj</td>
+			<td>Member</td>
+			<td>02/06/2012</td>
+			<td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+		</tr>
+	</table>	
+<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;table class="appTable darkTable wide">
+	...
+&lt;/table>
+</pre>
+<h4 class="codeTitle">CSS</h4>
+<pre class="prettyprint">
+.darkTable th {
+    border-color: #001A3A;
+}
+.darkTable th {
+    background-color: #002A5C;
+    color: #FFFFFF;
+}
+</pre>
+	<h2 id="alertsandmessages">Alerts &amp; Messages</h2>
+	<h4 class="codeTitle demoTitle">Demo</h4>
+	<div class="alert alertInfo">
+		Important information about the form. 
+	</div>
+	<div class="alert alertWarning">
+		<p>Please correct the following errors: </p>
+		<ul>
+			<li>Please enter your address</li>
+			<li>Please enter your postal code</li>
+			<li>Please select a province</li>
+			<li>Please enter your <a href="#">UTORid</a></li>
+		</ul>
+	</div>
+	<div class="alert alertCaution">
+		This event is now sold out. 
+	</div>
+	<div class="alert alertSuccess">
+		Your form has been submitted successfully. 
+	</div>
+
+<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;!-- blue info alert -->
+&lt;div class="alertInfo">
+	Important information about this table!
+&lt;/div>
+&lt;!-- red warning alert -->
+&lt;div class="alertWarning">
+	&lt;p>Please correct the following errors: &lt;/p>
+	&lt;ul>
+		&lt;li>Please enter your address&lt;/li>
+		&lt;li>Please enter your postal code&lt;/li>
+		&lt;li>Please select a province&lt;/li>
+		&lt;li>Please enter your &lt;a href="#">UTORid&lt;/a>&lt;/li>
+	&lt;/ul>
+&lt;/div>
+&lt;!-- yellow caution alert -->
+&lt;div class="alert alertCaution">
+		This event is now sold out. 
+&lt;/div>
+&lt;!-- green success alert -->
+&lt;div class="alertSuccess">
+	Your form has been submitted successfully. 
+&lt;/div>
+</pre>
+<h4 class="codeTitle">CSS</h4>
+
+<pre class="prettyprint">
+.alert {
+    margin-bottom: 10px;
+    padding: 10px;
+    clear: both;
+    overflow: hidden;
+    position: relative;
+}
+.alertWarning {
+    background-color: #FBE6E6;
+    border: 2px solid #D40505;
+    color: #9F0000;
+}
+.alertWarning a {
+    color: #9F0000;
+}
+.alertSuccess {
+    background-color: #E1F6E1;
+    border: 2px solid #05B305;
+    color: #057605;
+}
+.alertSuccess a {
+    color: #057605;
+}
+.alertInfo {
+    background-color: #CDDFEA;
+    border: 2px solid #005D93;
+    color: #004C77;
+}
+.alertInfo a {
+    color: #004C77;
+}
+.alertCaution {
+    background-color: #fffdcc;
+    border: 2px solid #ddd500;
+    color: #4c4b29;
+}
+.alertCaution a {
+    color: #4c4b29;
+}
+</pre>
+
+</div>
+</div>
+<!-- syntax highlighting--><script src="js/prettify.js"></script>
+<script>
+prettyPrint();
+</script>
+</body>
+</html>
