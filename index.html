@@ -8,7 +8,7 @@
 <body>
 <div class="container">
 
-<nav class="sideNav">
+<div class="sideNav">
 	<ul class="sideNavList borderless">
 		<li><a href="#layout">Layout</a>
 			<ul>
@@ -42,11 +42,31 @@
 			</ul>
 		</li>
 		<li><a href="#alertsandmessages">Alerts and Messages</a></li>
+		<li><a href="#javascript">JavaScript Components</a>
+			<ul>
+				<li><a href="#dropdowns">Dropdowns</a></li>
+				<li><a href="#tabs">Tabs</a></li>
+			</ul>
+		</li>
 	</ul>
-</nav>
+</div>
 <div class="content">
 	<h1 class="special">Code Library</h1>
+	<div class="alert alertInfo">
+		It is recommended that you use some type of browser reset to remove default margins and padding. Elements such as list and table items may appear inconsistent if browser styles are not reset. 
+	</div>
+	<div class="alert alertCaution">
+		<h3>Browser Compatibility</h3>
+		<ul>
+			<li><strong>Full support:</strong> modern webkit, Firefox, IE9+ (not yet tested in Firefox 3)</li>
+			<li><strong>Good enough support:</strong> IE8 will render all layouts properly, but will be missing CSS3 gradients, box-shadows, and border-radii</li>
+			<li><strong>Not-so-great: </strong> IE7 will not render layout or horizontal form elements correctly. Tabbed navigation will be usable, but current tab will have a bottom border. </li>
+		</ul>
+	</div>
 		<h2 id="layout">Layout</h2>
+		<div class="alert alertCaution">
+			Not supported in IE6/7
+		</div>
 	<p>Since I'm not using floats, these <em>should</em> be self-clearing, provided all columns add up to 100% (or 99%)</p>
 	<h4 class="codeTitle demoTitle">Demo</h4>
 	<h3 id="twocolumns">Two Columns</h3>
@@ -110,36 +130,29 @@
 
 <pre class="prettyprint">
 .col {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-	display: inline-block;
-	vertical-align: top;
+    display: inline-block;
+    vertical-align: top;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
 }
-.firstHalf, .secondHalf {
-    width: 49%;
-}
-.firstHalf {
-    clear: both;
-}
-.secondHalf {
-    padding-left: 2%;
-}
+.firstHalf, 
+.secondHalf {width: 49%;}
+.firstHalf {clear: both;}
+.secondHalf {padding-left: 2%;}
 .firstThird {
-    padding-right: 1%;
     width: 33%;
+    padding-right: 1%;
 }
 .secondThird {
-    padding: 0 1%;
     width: 33%;
+    padding: 0 1%;
 }
 .thirdThird {
-    padding-left: 1%;
     width: 32%;
+    padding-left: 1%;
 }
-.longCol {
-    width: 66%;
-}
+.longCol {width: 66%;}
 </pre>
 
 	<h2 id="lists">Lists</h2>
@@ -162,34 +175,37 @@
 </pre>
 <h4 class="codeTitle">CSS</h4>
 <pre class="prettyprint">
+/* Horizontal Navigation */
 .navList {
-    list-style: none outside none;
     margin-left: 0;
+    list-style: none outside none;
+    *overflow: hidden; /* dirty IE7 hack */
 }
 .navList:before,
 .navList:after {
   display: table;
   content: "";
 }
-.navList:after{
-  clear: both;
-}
+.navList:after{clear: both;}
 .navList li {
     float: left;
     padding-right: 10px;
 }
 .navList a {
-    border-radius: 3px;
     display: block;
     padding: 4px 8px;
     text-decoration: none;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
 }
 .navList .current {
-    background-color: #002A5C;
     color: #FFFFFF;
+    background-color: #002A5C;
 }
 </pre>
 <h3 id="horizontalnavigationtabs">Horizontal Navigation with Tabs</h3>
+<div class="alert alertCaution">Requires .navList styles</div>
 	<h4 class="codeTitle demoTitle">Demo</h4>
 	<ul class="navList tabList">
 		<li><a class="current" href="#Forms">Forms</a></li>
@@ -209,49 +225,24 @@
 </pre>
 <h4 class="codeTitle">CSS</h4>
 <pre class="prettyprint">
-.navList {
-    list-style: none outside none;
-    margin-left: 0;
-}
-.navList:before,
-.navList:after {
-  display: table;
-  content: "";
-}
-.navList:after{
-  clear: both;
-}
-.navList li {
-    float: left;
-    padding-right: 10px;
-}
-.navList a {
-    border-radius: 3px;
-    display: block;
-    padding: 4px 8px;
-    text-decoration: none;
-}
-.navList .current {
-    background-color: #002A5C;
-    color: #FFFFFF;
-}
-.navList.tabList {
-     border-bottom:1px solid #999;
-}
+/* Tabbed horizontal navigation (requires horizontal navigation styles) */
+.navList.tabList {border-bottom:1px solid #999;}
 .navList.tabList li {
     padding-right: 0;
     margin-bottom: -1px;
 }
 .navList.tabList a {
-    color: #444;
-    border: 1px solid transparent;
     margin-right: 2px;
+    border: 1px solid transparent;
+    color: #444;
 }
 .navList.tabList .current {
     border: 1px solid #999;
     border-bottom-color: transparent;
-    border-radius: 3px 3px 0 0;
     background-color: #fff;
+    -webkit-border-radius: 3px 3px 0 0;
+       -moz-border-radius: 3px 3px 0 0;
+            border-radius: 3px 3px 0 0;
 }
 </pre>
 	<h3 id="verticalnavigation">Vertical Navigation Default</h3>
@@ -283,28 +274,25 @@
 </pre>
 <h4 class="codeTitle">CSS</h4>
 <pre class="prettyprint">
-.sideNavList, .sideNavList ul {
-    list-style: none outside none;
+.sideNavList, 
+.sideNavList ul {
     margin: 0;
+    list-style: none outside none;
 }
 .sideNavList li a {
-    border-top: 1px solid #E4E4E4;
     display: block;
     padding: 5px 0 5px 3px;
-    color: #002a5c;
+    border-top: 1px solid #E4E4E4;
 }
-.sideNavList ul a {
-    padding-left: 20px;
-}
-.sideNavList a {
-    text-decoration: none;
-}
-.sideNavList .current, .sideNavList a:hover {
-    color: #0059C2;
-}
+.sideNavList > li:first-child > a {border-top: none;}
+.sideNavList ul a {padding-left: 20px;}
+.sideNavList a {text-decoration: none;}
+.sideNavList .current, 
+.sideNavList a:hover {color: #0059C2;}
 </pre>
 
 <h3 id="verticalnavigationbutton">Vertical Navigation &mdash; button style</h3>
+<div class="alert alertCaution">Requires .sideNavList styles</div>
 	<h4 class="codeTitle demoTitle">Demo</h4>
 	<ul class="sideNavList buttonList">
 		<li><a href="#Forms">Forms</a></li>
@@ -335,86 +323,21 @@
 <h4 class="codeTitle">CSS</h4>
 
 <pre class="prettyprint">
-.navList {
-    list-style: none outside none;
-    margin-left: 0;
-}
-.navList:before,
-.navList:after {
-  display: table;
-  content: "";
-}
-.navList:after{
-  clear: both;
-}
-.navList li {
-    float: left;
-    padding-right: 10px;
-}
-.navList a {
-    border-radius: 3px;
-    display: block;
-    padding: 4px 8px;
-    text-decoration: none;
-}
-.navList .current {
-    background-color: #002A5C;
-    color: #FFFFFF;
-}
-.navList.tabList {
-     border-bottom:1px solid #999;
-}
-.navList.tabList li {
-    padding-right: 0;
-    margin-bottom: -1px;
-}
-.navList.tabList a {
-    color: #444;
-    border: 1px solid transparent;
-    margin-right: 2px;
-}
-.navList.tabList .current {
-    border: 1px solid #999;
-    border-bottom-color: transparent;
-    border-radius: 3px 3px 0 0;
-    background-color: #fff;
-}
-.sideNavList, .sideNavList ul {
-    list-style: none outside none;
-    margin: 0;
-}
-.sideNavList li a {
-    border-top: 1px solid #E4E4E4;
-    display: block;
-    padding: 5px 0 5px 3px;
-}
-.sideNavList ul a {
-    padding-left: 20px;
-}
-.sideNavList a {
-    text-decoration: none;
-}
-.sideNavList .current, .sideNavList a:hover {
-    color: #0059C2;
-}
 .buttonList li a {
-    border: none;
     padding: 7px 0 7px 7px;
-    border-radius: 3px;
+    border: none;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
 }
-.buttonList ul li a {
-    padding-left: 17px;
-}
+.buttonList ul li a {padding-left: 23px;}
 .buttonList .current {
-    background-color: #002A5C;
     color: #fff;
+    background-color: #002A5C;
 }
 .buttonList a:hover {
-    background-color: #0059C2;
     color: #fff;
-}
-.navList.borderless a {
-    border: none;
+    background-color: #0059C2;   
 }
 </pre>
 
@@ -451,6 +374,9 @@
 </pre>
 	<h2 id="forms">Forms</h2>
 	<h3 id="horizontalform">Horizontal Layout Form</h3>
+	<div class="alert alertCaution">
+			Not supported in IE6/7
+		</div>
 	<p><em><b>Note:</b> This form requires specific markup, the vertical form does not</em></p>
 <h4 class="codeTitle demoTitle">Demo</h4>
 
@@ -568,28 +494,25 @@
 </pre>
 <h4 class="codeTitle">CSS</h4>
 <pre class="prettyprint">
-.horizontalForm {
-    margin-bottom: 15px;
-}
-.horizontalForm p {
-    clear: both;
-}
+.horizontalForm {margin-bottom: 15px;}
+.horizontalForm p {clear: both;}
 .horizontalForm label {
     display: inline-block;
-    margin-bottom: 5px;
-    margin-right: 2%;
-    text-align: right;
-    vertical-align: top;
     width: 20%;
+    margin: 0 2% 5px 0; 
+    vertical-align: top;
+    text-align: right;
 }
 .horizontalForm .field {
     display: inline-block;
-    margin-right: 15%;
-    text-align: left;
-    vertical-align: top;
     width: 60%;
+    margin-right: 15%;
+    vertical-align: top;
+    text-align: left;
 }
-.horizontalForm input[type="text"], .horizontalForm input[type="email"], .horizontalForm textarea {
+.horizontalForm input[type="text"], 
+.horizontalForm input[type="email"], 
+.horizontalForm textarea {
     width: 70%;
 }
 .horizontalForm fieldset {
@@ -598,21 +521,17 @@
 }
 .horizontalForm legend {
     float: left;
-    margin-right: 2%;
-    text-align: right;
     width: 20%;
+    margin-right: 2%;
+    text-align: right; 
 }
 .horizontalForm fieldset label {
-    margin-bottom: 5px;
     width: auto;
+    margin-bottom: 5px;
 }
 .horizontalForm .errorMsg {
     display: block;
     padding-top: 4px;
-}
-.errorMsg {
-    color: #D30000;
-    font-size: 12px;
 }
 </pre>
 
@@ -702,38 +621,15 @@
 </pre>
 <h4 class="codeTitle">CSS</h4>
 <pre class="prettyprint">
-.firstThird, 
-.secondThird, 
-.thirdThird, 
-.firstHalf, 
-.secondHalf {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    display: inline-block;
-    vertical-align: top;
-}
-.firstHalf, 
-.secondHalf {
-    width: 49%;
-}
-.firstHalf {
-    clear: both;
-}
-.secondHalf {
-    padding-left: 2%;
-}
 .verticalForm label {
     display: block;
     margin-top: 15px;
     padding-bottom: 5px;
 }
-.verticalForm legend {
-    margin-bottom: 5px;
-}
+.verticalForm legend {margin-bottom: 5px;}
 .verticalForm fieldset {
-    line-height: 1.6;
     margin-top: 15px;
+    line-height: 1.6;
 }
 .verticalForm fieldset label {
     display: inline;
@@ -754,14 +650,7 @@
 .verticalForm .secondHalf input[type="text"] {
     width: 100%;
 }
-.verticalForm input[type="submit"] {
-    margin-bottom: 15px;
-    margin-top: 15px;
-}
-.errorMsg {
-    color: #D30000;
-    font-size: 12px;
-}
+.verticalForm input[type="submit"] {margin-top: 15px;}
 </pre>
 <h3 id="formfieldclasses">Form Field Classes</h3>
 <h4>Field widths</h4>
@@ -831,53 +720,28 @@
 <h4 class="codeTitle">CSS</h4>
 
 <pre class="prettyprint">
-.inputFull {
-    width: 100% !important;
+.errorMsg {
+    color: #D30000;
+    font-size: 12px;
 }
-.inputHalf {
-    width: 50% !important;
-}
-.inputThird {
-    width: 33% !important;
-}
-.inputQuarter {
-    width: 25% !important;
-}
-.inputEighth {
-    width: 14% !important;
-}
-.inputSixteenth {
-    width: 7% !important;
-}
-.secondHalf .smallInput, .firstHalf .smallInput {
-    width: 50% !important;
-}
-.microInput {
-    width: 14% !important;
-}
-.searchField {
-    margin-bottom: 15px;
-}
+.inputFull {width: 100% !important;}
+.inputHalf {width: 50% !important;}
+.inputThird {width: 33% !important;}
+.inputQuarter {width: 25% !important;}
+.inputEighth {width: 14% !important;}
+.inputSixteenth {width: 7% !important;}
+.secondHalf .smallInput, 
+.firstHalf .smallInput {width: 50% !important;}
+.searchField {margin-bottom: 15px;}
 .searchInput {
     padding: 5px;
     display: inline-block!important;
     width: auto!important;
 }
-.btn {
-    background: linear-gradient(center top , #0B4484 0%, #002A5C 100%) repeat scroll 0 0 transparent;
-    border: 1px solid #00142C;
-    border-radius: 3px 3px 3px 3px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
+.req {
+    font-size: 18px;
     font-weight: bold;
-    padding: 4px 8px;
-    text-decoration: none;
-}
-.visHide {
-    position: absolute;
-    left: -9999px;
+    color: red;
 }
 </pre>
 	
@@ -901,102 +765,106 @@
 
 <pre class="prettyprint">
 .btn {
+    display: inline-block;
+    padding: 4px 8px;
+    border: 1px solid #00142C;
+    font-weight: bold;
+    text-decoration: none;
+    color: #FFFFFF;
     background-color: #0b4384;
+    cursor: pointer;
     background-image:-webkit-gradient(linear, left top, left bottom, from(#0b4384), to(#002A5C));
     background-image:-webkit-linear-gradient(top, #0b4384, #002A5C); 
     background-image:-moz-linear-gradient(top, #0b4384, #002A5C); 
     background-image:-o-linear-gradient(top, #0b4384, #002A5C); 
     background-image:linear-gradient(to bottom, #0b4384, #002A5C);
-    border: 1px solid #00142C;
-    border-radius: 3px 3px 3px 3px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-weight: bold;
-    padding: 4px 8px;
-    text-decoration: none;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+       -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); 
 }
 .btn:hover {
+    border-color: #01234D;
     background-color: #0E55A0;
     background-image:-webkit-gradient(linear, left top, left bottom, from(#0E55A0), to(#004089));
     background-image:-webkit-linear-gradient(top, #0E55A0, #004089); 
     background-image:-moz-linear-gradient(top, #0E55A0, #004089); 
     background-image:-o-linear-gradient(top, #0E55A0, #004089); 
     background-image:linear-gradient(to bottom, #0E55A0, #004089);
-    border-color: #01234D;
 }
 .btnSuccess {
+    border-color: #005423;
     background-color: #039941;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#039941), to(#006e2e)); 
     background-image: -webkit-linear-gradient(top, #039941, #006e2e); 
     background-image: -moz-linear-gradient(top, #039941, #006e2e); 
     background-image: -o-linear-gradient(top, #039941, #006e2e); 
     background-image: linear-gradient(to bottom, #039941, #006e2e); 
-    border-color: #005423;
 }
 .btnSuccess:hover {
+    border-color: #007330;
     background-color: #03AF48;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#03AF48), to(#008437)); 
     background-image: -webkit-linear-gradient(top, #03AF48, #008437); 
     background-image: -moz-linear-gradient(top, #03AF48, #008437); 
     background-image: -o-linear-gradient(top, #03AF48, #008437); 
     background-image: linear-gradient(to bottom, #03AF48, #008437); 
-    border-color: #007330;
 }
 .btnWarning {
+    border-color: #CB7702;
     background-color: #FAA732;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#FAA732), to(#D37B00)); 
     background-image: -webkit-linear-gradient(top, #FAA732, #D37B00); 
     background-image: -moz-linear-gradient(top, #FAA732, #D37B00); 
     background-image: -o-linear-gradient(top, #FAA732, #D37B00); 
     background-image: linear-gradient(to bottom, #FAA732, #D37B00); 
-    border-color: #CB7702;
 }
 .btnWarning:hover {
+    border-color: #E68E14;
     background-color: #FCB755;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#FCB755), to(#F29113)); 
     background-image: -webkit-linear-gradient(top, #FCB755, #F29113); 
     background-image: -moz-linear-gradient(top, #FCB755, #F29113); 
     background-image: -o-linear-gradient(top, #FCB755, #F29113); 
     background-image: linear-gradient(to bottom, #FCB755, #F29113); 
-    border-color: #E68E14;
 }
 .btnDanger {
+    border-color: #940000;
     background-color: #CC0000;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#CC0000), to(#A30000)); 
     background-image: -webkit-linear-gradient(top, #CC0000, #A30000); 
     background-image: -moz-linear-gradient(top, #CC0000, #A30000); 
     background-image: -o-linear-gradient(top, #CC0000, #A30000); 
     background-image: linear-gradient(to bottom, #CC0000, #A30000); 
-    border-color: #940000;
 }
 .btnDanger:hover {
+    border-color: #BC0000;
     background-color: #E80000;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#E80000), to(#C10000)); 
     background-image: -webkit-linear-gradient(top, #E80000, #C10000); 
     background-image: -moz-linear-gradient(top, #E80000, #C10000); 
     background-image: -o-linear-gradient(top, #E80000, #C10000); 
     background-image: linear-gradient(to bottom, #E80000, #C10000); 
-    border-color: #BC0000;
 }
 .btnAlt {
+    border-color: #484848;
     background-color: #787F84;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#787F84), to(#465259)); 
     background-image: -webkit-linear-gradient(top, #787F84, #465259); 
     background-image: -moz-linear-gradient(top, #787F84, #465259); 
     background-image: -o-linear-gradient(top, #787F84, #465259); 
     background-image: linear-gradient(to bottom, #787F84, #465259); 
-    border-color: #484848;
 }
 .btnAlt:hover {
+    border-color: #626262;
     background-color: #81898E;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#81898E), to(#5A6972)); 
     background-image: -webkit-linear-gradient(top, #81898E, #5A6972); 
     background-image: -moz-linear-gradient(top, #81898E, #5A6972); 
     background-image: -o-linear-gradient(top, #81898E, #5A6972); 
     background-image: linear-gradient(to bottom, #81898E, #5A6972); 
-    border-color: #626262;
 }
 </pre>
 <h2 id="tables">Tables</h2>
@@ -1091,14 +959,12 @@
     border-top: 1px solid #DCDCDC;
 }
 .appTable th {
-    background-color: #FFFFFF;
     border: 1px solid #DCDCDC;
     border-bottom: 2px solid #888888;
     color: #555555;
+    background-color: #FFFFFF;
 }
-.appTable tr:nth-child(2n+1) td {
-    background-color: #F1F1F1;
-}
+.appTable tr:nth-child(2n+1) td {background-color: #F1F1F1;}
 </pre>
 	<h3 id="darktable">Dark Table</h3>
 	<table class="appTable darkTable wide">
@@ -1151,9 +1017,7 @@
 </pre>
 <h4 class="codeTitle">CSS</h4>
 <pre class="prettyprint">
-.darkTable th {
-    border-color: #001A3A;
-}
+.darkTable th {border-color: #001A3A;}
 .darkTable th {
     background-color: #002A5C;
     color: #FFFFFF;
@@ -1216,41 +1080,174 @@
     position: relative;
 }
 .alertWarning {
-    background-color: #FBE6E6;
     border: 2px solid #D40505;
     color: #9F0000;
+    background-color: #FBE6E6;
 }
-.alertWarning a {
-    color: #9F0000;
-}
+.alertWarning a {color: #9F0000;}
 .alertSuccess {
-    background-color: #E1F6E1;
     border: 2px solid #05B305;
     color: #057605;
+    background-color: #E1F6E1;
 }
-.alertSuccess a {
-    color: #057605;
-}
+.alertSuccess a {color: #057605;}
 .alertInfo {
-    background-color: #CDDFEA;
     border: 2px solid #005D93;
     color: #004C77;
+    background-color: #CDDFEA;
 }
-.alertInfo a {
-    color: #004C77;
-}
+.alertInfo a {color: #004C77;}
 .alertCaution {
-    background-color: #fffdcc;
     border: 2px solid #ddd500;
     color: #4c4b29;
+    background-color: #fffdcc;
 }
-.alertCaution a {
-    color: #4c4b29;
+.alertCaution a {color: #4c4b29;}
+</pre>
+<h2 id="javascript">JavaScript Components</h2>
+<div class="alert alertInfo">
+All JavaScript components require jQuery.
+</div>
+<h3 id="dropdowns">Dropdowns</h3>
+
+<h4 class="codeTitle demoTitle">Demo</h4>
+	<div class="dropdown">
+		<a href="#dropdown-1" class="dropdownTrigger btn">Trigger</a> 
+		<div class="dropdownContent" id="dropdown-1">
+			<ul class="sideNavList">
+				<li><a href="#">Menu Item 1</a></li>
+				<li><a href="#">Menu Item 2</a></li>
+				<li><a href="#">Menu Item 3</a></li>
+				<li><a href="#">Menu Item 4</a></li>
+			</ul>
+		</div>
+	</div>
+<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;div class="dropdown">
+	&lt;a href="#dropdown-1" class="dropdownTrigger btn">Trigger&lt;/a> 
+	&lt;div class="dropdownContent" id="dropdown-1">
+		&lt;ul class="sideNavList">
+			&lt;li>&lt;a href="#">Menu Item 1&lt;/a>&lt;/li>
+			&lt;li>&lt;a href="#">Menu Item 2&lt;/a>&lt;/li>
+			&lt;li>&lt;a href="#">Menu Item 3&lt;/a>&lt;/li>
+			&lt;li>&lt;a href="#">Menu Item 4&lt;/a>&lt;/li>
+		&lt;/ul>
+	&lt;/div>
+&lt;/div>
+</pre>
+<h4 class="codeTitle">CSS</h4>
+<pre class="prettyprint">
+.dropdown {position: relative; }
+.dropdownContent {
+    position: absolute;
+    left: -9999px;
+    margin-top: 3px;
+    *margin-top: 28px;
+    padding: 5px 10px;
+    border: 1px solid #aaaaaa;
+    background-color: #fff;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+       -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); 
 }
+.dropdownContent .sideNavList li a {padding-left: 0; }
+.showDropdownContent {left: 0; }
+</pre>
+<h4 class="codeTitle">JS</h4>
+<pre class="prettyprint">
+$(document).ready(function(){
+	$(".dropdownTrigger").click(function (e) {
+		e.preventDefault();
+		var dropdown = $(this).attr("href");
+		$(dropdown).toggleClass("showDropdownContent");
+		console.log(dropdown);
+	});
+	$("html").click(function () {
+		$(".dropdownContent").removeClass("showDropdownContent");
+	});
+	$(".dropdown").click(function  (event) {
+		event.stopPropagation();
+	})
+});
 </pre>
 
+<h3 id="tabs">Tabs</h3>
+<h4 class="codeTitle demoTitle">Demo</h4>
+<div class="tabcontainer">
+	<ul class="navList tabList">
+		<li><a href="#tab1">Tab 1</a></li>
+		<li><a href="#tab2">Tab 2</a></li>
+		<li><a href="#tab3">Tab3</a></li>
+	</ul>
+	<div class="tabs">
+		<div id="tab1" class="tab">
+			Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+		</div>
+		<div id="tab2" class="tab">
+			Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+		</div>
+		<div id="tab3" class="tab">
+			commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. 
+		</div>	
+	</div>
 </div>
+
+<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;div class="tabcontainer">
+	&lt;ul class="navList tabList">
+		&lt;li>&lt;a href="#tab1">Tab 1&lt;/a>&lt;/li>
+		&lt;li>&lt;a href="#tab2">Tab 2&lt;/a>&lt;/li>
+		&lt;li>&lt;a href="#tab3">Tab3&lt;/a>&lt;/li>
+	&lt;/ul>
+	&lt;div class="tabs">
+		&lt;div id="tab1" class="tab">
+			Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut 
+			DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, 
+			tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+		&lt;/div>
+		&lt;div id="tab2" class="tab">
+			Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
+		&lt;/div>
+		&lt;div id="tab3" class="tab">
+			commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. 
+		&lt;/div>	
+	&lt;/div>
+&lt;/div>
+</pre>
+<h4 class="codeTitle demoTitle">CSS</h4>
+<div class="alert alertInfo">
+	Interactive tabs require no additional CSS, just be sure to include the CSS for .navList and .tabList
 </div>
+<h4 class="codeTitle demoTitle">JS</h4>
+<div class="alert alertCaution">
+	This isn't the most elegant or efficient script, you may see a flash of unstyled content. If you're already loading jQuery UI, I'd reccomend using the tabs function. 
+</div>
+<pre class="prettyprint">
+$(".tabcontainer ul > li:first-child a").addClass("current");
+$(".tabs .tab").hide();
+$(".tabs .tab:first-child").show();
+
+$(".tabcontainer > ul > li  a").click(function () {
+	$(".tabcontainer a").removeClass("current");
+	$(this).addClass("current");
+	var currentTab = $(this).attr("href");
+	$(".tabs .tab").hide();
+	$(currentTab).show();
+	return false;
+})
+</pre>
+
+<br />
+</div>
+
+</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 <!-- syntax highlighting--><script src="js/prettify.js"></script>
 <script>
 prettyPrint();
