@@ -72,6 +72,8 @@ blockquote {
     border: 1px solid #E4E4E4;
     background-color: #f7f7f7;
     border-top: none;
+    height: 600px;
+    overflow: auto;
 }
 .content {
     width: 900px;
@@ -269,7 +271,7 @@ blockquote {
     color: #D30000;
     font-size: 12px;
 }
-.inputFull {width: 100% !important;}
+.inputFull {width: 98% !important; padding: 2%;}
 .inputHalf {width: 50% !important;}
 .inputThird {width: 33% !important;}
 .inputQuarter {width: 25% !important;}
@@ -310,6 +312,8 @@ blockquote {
 .horizontalForm input[type="email"], 
 .horizontalForm textarea {
     width: 70%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 .horizontalForm fieldset {
     overflow: hidden;
@@ -484,3 +488,29 @@ blockquote {
 }
 .dropdownContent .sideNavList li a {padding-left: 0; }
 .showDropdownContent {left: 0; }
+
+#tooltip {
+    position:absolute;
+    z-index:9999;
+    width:auto;  
+    padding: 8px;
+    color: #fff; 
+    background-color: rgba(0,0,0,0.9);
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+}
+
+*html #tooltip .tipHeader {margin-bottom:-6px;}
+
+.dismissLink {
+    font-family: Verdana, sans-serif;
+    color: #888!important;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    cursor: pointer;
+}

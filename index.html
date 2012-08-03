@@ -45,7 +45,9 @@
 		<li><a href="#javascript">JavaScript Components</a>
 			<ul>
 				<li><a href="#dropdowns">Dropdowns</a></li>
+				<li><a href="#tooltips">Tooltips</a></li>
 				<li><a href="#tabs">Tabs</a></li>
+				<li><a href="#dismiss">Dismissable/Closable content</a></li>
 			</ul>
 		</li>
 	</ul>
@@ -1024,6 +1026,7 @@
 }
 </pre>
 	<h2 id="alertsandmessages">Alerts &amp; Messages</h2>
+	<p>Alerts can also be <a href="#dismiss">dismissed with jQuery</a></p>
 	<h4 class="codeTitle demoTitle">Demo</h4>
 	<div class="alert alertInfo">
 		Important information about the form. 
@@ -1174,7 +1177,52 @@ $(document).ready(function(){
 	})
 });
 </pre>
-
+<h3 id="tooltips">Tooltips</h3>
+<h4 class="codeTitle demoTitle">Demo</h4>
+<p>Are you ready to start your university experience? <a href="studentlife.utoronto.ca" rel="tooltip" title="External Link: Student Life Home">Student Life Programs &amp; Services</a> offers a wide variety of programming for newly-admitted students to help you prepare for the challenges of first year.</p>
+<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;a href="studentlife.utoronto.ca" rel="tooltip" title="External Link: Student Life Home">Student Life Programs &amp; Services</a>
+</pre>
+<h4 class="codeTitle">CSS</h4>
+<pre class="prettyprint">
+#tooltip {
+    position:absolute;
+    z-index:9999;
+    width:auto;  
+    padding: 8px;
+    color: #fff; 
+    background-color: rgba(0,0,0,0.9);
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+}
+</pre>
+<h4 class="codeTitle">JS</h4>
+<pre class="prettyprint">
+$('a[rel=tooltip]').mouseover(function(e) {
+    var tip = $(this).attr('title');   
+    $(this).attr('title','');
+    $(this).append('&lt;div id="tooltip">&lt;div class="tipBody">' + tip + '&lt;/div>&lt;/div>');    
+     
+    $('#tooltip').css('top', e.pageY + 10 );
+    $('#tooltip').css('left', e.pageX + 20 );
+     
+    $('#tooltip').fadeIn('500');
+    $('#tooltip').fadeTo('10',0.8);
+     
+}).mousemove(function(e) {
+ 
+    $('#tooltip').css('top', e.pageY + 10 );
+    $('#tooltip').css('left', e.pageX + 20 );
+     
+}).mouseout(function() {
+ 
+    $(this).attr('title',$('.tipBody').html());
+    $(this).children('div#tooltip').remove();
+     
+});
+</pre>
 <h3 id="tabs">Tabs</h3>
 <h4 class="codeTitle demoTitle">Demo</h4>
 <div class="tabcontainer">
@@ -1242,7 +1290,45 @@ $(".tabcontainer > ul > li  a").click(function () {
 })
 </pre>
 
-<br />
+<h3 id="dismiss">Dismissable/Closable Content</h3>
+If you include the code for the dismiss link, it will remove the nearest parent element with the class of "dismiss". 
+<h4 class="codeTitle demoTitle">Demo</h4>
+<div class="alert alertSuccess dismiss">
+Changes saved successfully. 
+<a class="dismissLink" title="close">x</a>
+</div>
+<div class="alert alertWarning dismiss">
+Your log-in information is incorrect
+<a class="dismissLink" title="close" href="#">x</a>
+</div>
+<h4 class="codeTitle">HTML</h4>
+<pre class="prettyprint">
+&lt;div class="alert alertSuccess dismiss">
+	Changes saved successfully. 
+	&lt;a class="dismissLink" title="close" href="#">x&lt;/a>
+&lt;/div>
+</pre>
+<h4 class="codeTitle">CSS</h4>
+<pre class="prettyprint">
+.dismissLink {
+    font-family: Verdana, sans-serif;
+    color: #888!important;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    cursor: pointer;
+}
+
+</pre>
+<h4 class="codeTitle">JS</h4>
+<pre class="prettyprint">
+$(".dismissLink").click(function () {
+	$(this).parent(".dismiss").fadeOut();
+})
+</pre>
 </div>
 
 </div>
