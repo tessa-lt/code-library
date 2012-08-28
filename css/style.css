@@ -60,7 +60,6 @@ blockquote {
     left: -9999px;
 }
 .container {
-    margin: 0 auto;
     width: 1140px;
     overflow: hidden;
 }
@@ -111,30 +110,23 @@ blockquote {
 /* Horizontal Navigation */
 .navList {
     margin-left: 0;
-    list-style: none outside none;
+    list-style: none;
     *overflow: hidden; /* dirty IE7 hack */
 }
-.navList:before,
-.navList:after {
-  display: table;
-  content: "";
-}
-.navList:after{clear: both;}
 .navList > li {
-    float: left;
-    padding-right: 10px;
+    display: inline-block;
 }
 .navList li > a {
-    display: block;
+    display:inline-block;
     padding: 4px 8px;
     text-decoration: none;
-    -webkit-border-radius: 3px;
-       -moz-border-radius: 3px;
-            border-radius: 3px;
 }
 .navList .current {
     color: #FFFFFF;
     background-color: #002A5C;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
 }
 .navList li ul {
     margin-left: 0;

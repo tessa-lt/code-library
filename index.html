@@ -74,40 +74,40 @@
 	<h3 id="twocolumns">Two Columns</h3>
 	
 	<div class="col firstHalf">
-		<p>Dedicated to student success and development, the division of Student Life Programs &amp; Services on the St. George Campus provides the supports, opportunities and resources students need to reach their full potential.
+		<p>Bespoke skateboard cliche messenger bag occupy brunch. Direct trade PBR gentrify VHS. Irony vinyl 3 wolf moon, bushwick pinterest gastropub farm-to-table viral seitan biodiesel keffiyeh. Odd future echo park twee, selvage next level gentrify direct trade 8-bit
 	</p>
 
 </div>
 <div class="col secondHalf">
-<p>The division consists of 11 distinct units dedicated to supporting a variety of personal and learning needs as well as a central team of program, communications, and information technology professionals who pull it all together.</p>
+<p>Leggings hella sriracha, terry richardson trust fund jean shorts ethical mumblecore retro food truck. Iphone leggings jean shorts post-ironic, biodiesel swag yr vinyl whatever. Whatever you probably haven't heard of them banh mi, seitan fixie hella artisan yr ennui.</p>
 	</div>
 
 	<h3 id="threecolumns">Three Columns</h3>
 	<div class="col firstThird">
-		<p>Dedicated to student success and development, the division of Student Life Programs &amp; Services on the St. George Campus provides the supports, opportunities and resources students need to reach their full potential.</p>
+		<p>Forage fixie semiotics mixtape, bespoke truffaut brooklyn pork belly 3 wolf moon beard narwhal. Tumblr bushwick sartorial photo booth. Next level kale chips portland keffiyeh.</p>
 	</div>
 	<div class="col secondThird">
-		<p>The division consists of 11 distinct units dedicated to supporting a variety of personal and learning needs as well as a central team of program, communications, and information technology professionals who pull it all together. </p>
+		<p>Pop-up forage echo park, high life mlkshk keytar sartorial scenester vice truffaut DIY mumblecore chambray salvia wayfarers. Sustainable iphone brooklyn trust fund hella. </p>
 	</div>
 	<div class="col thirdThird">
-		<p>Take advantage of what Student Life Programs &amp; Services has to offer. Your adventure begins now.</p>
+		<p>Chillwave whatever next level vice scenester, biodiesel butcher. Terry richardson keytar scenester, tofu fingerstache aesthetic readymade leggings kogi.</p>
 	</div>
 
 <h3 id="twocolumnsasymetrical">Two Columns Asymetrical</h3>
 	<div class="col firstThird longCol">
-		<p>Dedicated to student success and development, the division of Student Life Programs &amp; Services on the St. George Campus provides the supports, opportunities and resources students need to reach their full potential.Take advantage of what Student Life Programs &amp; Services has to offer. Your adventure begins now.
+		<p>DFap flexitarian hella, narwhal brooklyn jean shorts cosby sweater butcher bicycle rights mustache aesthetic lo-fi polaroid. Mumblecore etsy DIY bespoke ethical food truck, pop-up four loko hoodie dreamcatcher lomo single-origin coffee. 
 		</p>
 	</div>
 	<div class="col thirdThird">
-		<p>The division consists of 11 distinct units dedicated to supporting a variety of personal and learning needs as well as a central team of program, communications, and information technology professionals who pull it all together.</p>
+		<p>Synth vegan ennui small batch iphone. Cliche hoodie thundercats vinyl scenester cosby sweater portland. Four loko whatever locavore direct trade, lomo beard art party occupy portland hoodie wes anderson.</p>
 	</div>
 <h3 id="twocolumnsasymetricalreversed">Two Columns Asymetrical (reversed)</h3>
 	<div class="col firstThird ">
-		<p>Dedicated to student success and development, the division of Student Life Programs &amp; Services on the St. George Campus provides the supports, opportunities and resources students need to reach their full potential.
+		<p>DTerry richardson etsy selvage photo booth, cosby sweater aesthetic master cleanse cred 3 wolf moon brooklyn tofu. 
 		</p>
 	</div>
 	<div class="col thirdThird longCol">
-		<p>The division consists of 11 distinct units dedicated to supporting a variety of personal and learning needs as well as a central team of program, communications, and information technology professionals who pull it all together.</p>
+		<p>Mumblecore etsy DIY bespoke ethical food truck, pop-up four loko hoodie dreamcatcher lomo single-origin coffee. </p>
 	</div>
 <h4 class="codeTitle">HTML</h4>
 <pre class="prettyprint">
@@ -180,30 +180,27 @@
 /* Horizontal Navigation */
 .navList {
     margin-left: 0;
-    list-style: none outside none;
+    list-style: none;
     *overflow: hidden; /* dirty IE7 hack */
 }
-.navList:before,
-.navList:after {
-  display: table;
-  content: "";
+.navList > li {
+    display: inline-block;
 }
-.navList:after{clear: both;}
-.navList li {
-    float: left;
-    padding-right: 10px;
-}
-.navList a {
-    display: block;
+.navList li > a {
+    display:inline-block;
     padding: 4px 8px;
     text-decoration: none;
-    -webkit-border-radius: 3px;
-       -moz-border-radius: 3px;
-            border-radius: 3px;
 }
 .navList .current {
     color: #FFFFFF;
     background-color: #002A5C;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+}
+.navList li ul {
+    margin-left: 0;
+    list-style: none;
 }
 </pre>
 <h3 id="horizontalnavigationtabs">Horizontal Navigation with Tabs</h3>
